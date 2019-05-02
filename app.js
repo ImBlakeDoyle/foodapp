@@ -17,6 +17,6 @@ app.use(express.json());
 
 app.use(morgan("combined"));
 
-// app.use(require("./routes"));
+app.use(require("./routes"));
 
 module.exports = app;
