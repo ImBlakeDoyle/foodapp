@@ -5,6 +5,10 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
+    quantity: {
+        type: Number,
+        required: true
+    }, 
     weight: {
         type: Number,
         required: true
@@ -16,7 +20,7 @@ const ItemSchema = new Schema({
         type: Number,
         required: true
     },
-    carbohydrates: {
+    carbs: {
         type: Number,
         required: true
     },
@@ -27,6 +31,9 @@ const ItemSchema = new Schema({
     sugar: {
         type: Number,
         required: true
+    },
+    calories: {
+        type: Number,
     }
 });
 
