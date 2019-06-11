@@ -7,4 +7,6 @@ router.post("/new", ItemController.create);
 
 router.get("/all", ItemController.index);
 
+router.patch("/:id", ItemController.update);
+
 module.exports = router;
