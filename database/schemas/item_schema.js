@@ -1,7 +1,5 @@
 const { Schema } = require("mongoose");
 
-// Maybe add unit of measurement as string type, selects from dropdown and saves to DB
-
 const ItemSchema = new Schema({
     name: {
         type: String,

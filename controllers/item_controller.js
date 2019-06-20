@@ -1,12 +1,13 @@
 const ItemModel = require("./../database/models/item_model");
 
 async function create(req, res) {
-    const { name, quantity, category, measurement, price, protein, carbs, fat, sugar } = req.body;
-    let { weight } = req.body;
+    const { name, quantity, category, measurement, protein, carbs, fat, sugar } = req.body;
+    let { weight, price } = req.body;
 
     const calories = await calculateCalories(protein, carbs, fat);
 
-    weight = await calculateIndividualWeight(weight, quantity);
+    weight = await calculateIndividual(weight, quantity);
+    price = await calculateIndividual(price, quantity);
 
     const item = await ItemModel.create({ name, category, quantity, weight, measurement, price, protein, carbs, fat, sugar, calories});
 
@@ -15,10 +16,11 @@ async function create(req, res) {
 
 async function update(req, res, next) {
         const { id } = req.params;
+        console.log(id);
         const { quantity } = req.body;
         const item = await ItemModel.findOneAndUpdate(id, {quantity});
 
-        // console.log(item);
+        console.log(item);
         return res.json(item);
 }
 
@@ -39,8 +41,8 @@ function calculateCalories(protein, carbs, fat) {
     return cal.toFixed(2);
 }
 
-function calculateIndividualWeight(weight, quantity){
-    return (weight/quantity);
+function calculateIndividual(x, quantity){
+    return (x/quantity).toFixed(2);
 }
 
 module.exports = {
