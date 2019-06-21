@@ -8,6 +8,7 @@ async function create(req, res) {
     
     if (foundItem){
         await addQuantity(foundItem, quantity);
+        return;
     }
 
     let { weight, price } = req.body;
@@ -42,12 +43,10 @@ async function addQuantity(foundItem, quantity){
 
 async function update(req, res, next) {
         const { id } = req.params;
-        console.log(id);
         const { quantity } = req.body;
-        const item = await ItemModel.findOneAndUpdate(id, {quantity});
+        const theItem = await ItemModel.findByIdAndUpdate(id, {quantity: quantity});
 
-        console.log(item);
-        return res.json(item);
+        return res.json(theItem);
 }
 
 async function index(req, res) {
