@@ -23,23 +23,23 @@ const ItemSchema = new Schema({
     },
     price: {
         type: Number,
-        required: true
+        // required: true
     },
     protein: {
         type: Number,
-        required: true
+        // required: true
     },
     carbs: {
         type: Number,
-        required: true
+        // required: true
     },
     fat: {
         type: Number,
-        required: true
+        // required: true
     },
     sugar: {
         type: Number,
-        required: true
+        // required: true
     },
     calories: {
         type: Number,
