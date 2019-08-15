@@ -7,19 +7,19 @@ const ItemSchema = new Schema({
     },
     category: {
         type: String,
-        required: true
+        // required: true
     }, 
     quantity: {
         type: Number,
-        required: true
+        // required: true
     }, 
     weight: {
         type: Number,
-        required: true
+        // required: true
     },
     measurement: {
         type: String,
-        required: true
+        // required: true
     },
     price: {
         type: Number,
